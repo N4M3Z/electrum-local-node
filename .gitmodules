@@ -1,0 +1,6 @@
+[submodule "lib/electrum-personal-server"]
+	path = lib/electrum-personal-server
+	url = https://github.com/chris-belcher/electrum-personal-server
+[submodule "lib/electrum"]
+	path = lib/electrum
+	url = https://github.com/spesmilo/electrum
