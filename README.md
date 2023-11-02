@@ -4,7 +4,8 @@ Local node for Electrum wallet
 ## Installation
 Both electrum and electrum-personal-server run in Python, so the success of the following steps largely depends on your python environment and your platform. In general, the steps are as follows:
 
-1. Install bitcoind
+### 1. Install bitcoind
+
 Either download a binary for your platform https://bitcoincore.org/en/download/ or build from source (see below).
 
 `bitcoind` is also available on multiple package managers:
@@ -18,13 +19,12 @@ Observe good security practices like verifying the release signatures:
 ```
 shasum -a 256 fileName
 ```
-or 
+and compare signatures if you have `gpg` installed.
 ```
 gpg --verify nameOfSignatureFile nameOfZipFile
 ```
-if you have `gpg` installed.
 
-2. Install electrum
+###  2. Install electrum
 ```
 cd lib/electrum
 python3 -m pip install . --target .
@@ -35,7 +35,7 @@ python3 -m pip install --user -e .
 ```
 Note that in this case the binary will execute against configuration files outside of this repository and you are responsible for putting them in their correct location.
 
-3. Install electrum-personal-server
+###  3. Install electrum-personal-server
 ```
 cd lib/electrum-personal-server
 python3 -m pip install . --target .
@@ -46,7 +46,7 @@ python3 -m pip install --user -e .
 ```
 Note that in this case the binary will execute against configuration files outside of this repository and you are responsible for putting them in their correct location.
 
-4. (Optional) Generate SSL certificates:
+### 4. (Optional) Generate SSL certificates:
 ```
 openssl req -x509 -out localhost.crt -keyout localhost.key \
   -newkey rsa:4096 -nodes -sha256 \
@@ -56,7 +56,8 @@ openssl req -x509 -out localhost.crt -keyout localhost.key \
 Alternatively follow the guide here: https://github.com/spesmilo/electrum-server/blob/ce1b11d7f5f7a70a3b6cc7ec1d3e552436e54ffe/HOWTO.md#step-8-create-a-self-signed-ssl-cert
 
 ## Configuration
-1. Configure bitcoind to expose RPC/JSON 
+
+### 1. Configure bitcoind to expose RPC/JSON 
 ```
 host = 127.0.0.1
 port = 8332
@@ -67,7 +68,7 @@ txindex=1
 ```
 Use the sample configuration file in conf/bitcoind.
 
-2. Configure electrum, this is largely personal preference with the exception of
+### 2. Configure electrum, this is largely personal preference with the exception of
 ```
 oneserver=true
 server=127.0.0.1:50002:s
@@ -76,14 +77,13 @@ Use the sample configuration file in conf/electrum
 
 This can also be achieved through the CLI, see below when running electrum.
 
-3. Configure electrum-personal-server by adding the xPub of the wallet you want to index:
+### 3. Configure electrum-personal-server by adding the xPub of the wallet you want to index:
 ```
 myWallet = xPub
 ```
 If you don't have it on hand, load your wallet in electrum and Go to Wallet > Master Public Keys, and copy the text that starts with xPub for you wallet.
 
 Use the sample configuration file in conf/electrum-personal-server.
-
 
 ## Run
 1. Start bitcoind, wait for synchronization to complete.
@@ -98,9 +98,10 @@ Use the sample configuration file in conf/electrum-personal-server.
 ./run_electrum --oneserver --server 127.0.0.1:50002:s --dir ../../conf/electrum
 ```
 
-Alternatively set oneserver=true in electrum/config
+Alternatively set `oneserver=true` in electrum/config
 
 ## (Optional) Build Bitcoin Core
+
 Clone the repository
 ```
 git clone https://github.com/bitcoin/bitcoin.git
