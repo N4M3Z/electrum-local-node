@@ -1,0 +1,30 @@
+{
+    "auto_connect": false,
+    "blockchain_preferred_block": {
+        "hash": "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
+        "height": 0
+    },
+    "check_updates": true,
+    "config_version": 3,
+    "currency": "USD",
+    "decimal_point": 8,
+    "depth_level": 4,
+    "dynamic_fees": true,
+    "fee_level": 0,
+    "fee_per_kb": 150000,
+    "history_rates": true,
+    "is_maximized": false,
+    "mempool_fees": true,
+    "oneserver": false,
+    "rpcpassword": "password",
+    "rpcuser": "user",
+    "server": "blockstream.info:700:s",
+    "show_addresses_tab": true,
+    "show_channels_tab": true,
+    "show_console_tab": true,
+    "show_contacts_tab": true,
+    "show_utxo_tab": true,
+    "use_exchange": "CoinDesk",
+    "use_exchange_rate": true,
+    "use_rbf": false
+}
